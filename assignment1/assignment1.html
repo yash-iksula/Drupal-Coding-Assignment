@@ -1,0 +1,30 @@
+<html>
+  <script SRC="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script>
+    function call_function(value) {
+      var str = document.forms[0].inptstrg.value;
+      jQuery("#inpt").append(str + ' ');
+      str = jQuery("#inpt").html();
+      jQuery.get({
+        url: 'calc_number_of_words.php',
+        type: "get",
+        data: {str: str, action: value},
+        cache: false,
+        success: function (result) {
+          jQuery('#output').text(result);
+        }
+      });
+      return false;
+    }
+  </script>
+  <body>
+    <p>Assignment 1: Print the number of words in the dictionary which have the same letters in all
+the specified positions.</p>
+    <form onsubmit='return false'>
+      <input type="text" name="inptstrg" />
+      <input type="submit" value="Input" name="action" onclick="call_function(this.value)" />
+    </form>
+    Input : <div id='inpt'></div>
+    Output: <div id='output'></div>
+  </body>
+</html>
