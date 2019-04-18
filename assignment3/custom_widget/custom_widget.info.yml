@@ -1,0 +1,8 @@
+name: Custom Widget
+description: Creates a custom widgets for Example
+package: Custom
+
+type: module
+core: 8.x
+dependencies:
+  - block
